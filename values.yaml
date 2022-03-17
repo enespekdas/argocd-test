@@ -1,0 +1,21 @@
+service:
+  name: frontendlb
+  type: LoadBalancer
+  app: frontend
+  port: 80
+  targetPort: 80
+
+frontend:
+  name: frontend
+  team: development
+  replicas: 3
+  app: frontned
+  image: enespekdas/service-example:frontend
+  port: 80
+
+backend:
+  name: backend
+  team: development
+  replicas: 3
+  image: enespekdas/service-example:backend
+  port: 5000
